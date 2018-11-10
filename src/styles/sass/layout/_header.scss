@@ -1,9 +1,10 @@
 .header {
   width: 100%;
   color: $color-white;
-  @include padding-container;
+  position: absolute;
 
   &--dark {
+    position: relative;
     color: $color-font;
   }
 }

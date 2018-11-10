@@ -14,9 +14,10 @@ html {
   font-size: 62.5%;
 }
 
-@import url("https://fonts.googleapis.com/css?family=Karla:400,700");
+@import url("https://fonts.googleapis.com/css?family=EB+EB+Garamond:500|Karla:400,700");
 
 body {
   font-family: "Karla", sans-serif;
+  line-height: 1.6;
   color: $color-font;
 }

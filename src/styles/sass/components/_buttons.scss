@@ -16,3 +16,10 @@
     background-color: $color-white;
   }
 }
+
+.btn-anchor {
+  color: $color-gray;
+  font-size: 1.8rem;
+  text-decoration: none;
+  @include border-bottom;
+}

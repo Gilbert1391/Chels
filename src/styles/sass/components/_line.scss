@@ -1,0 +1,12 @@
+.v-line {
+  width: 1px;
+  height: 5.3rem;
+  background-color: $color-gray;
+  margin: 4.5rem auto;
+  text-align: center;
+
+  &--big {
+    height: 6rem;
+    margin: 10rem auto;
+  }
+}

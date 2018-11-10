@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import Header from "./components/header";
 import Home from "./main-pages/home";
 import Shop from "./main-pages/shop";
@@ -12,6 +12,7 @@ import "./styles/sass/main.scss";
 
 class App extends Component {
   state = {
+    path: null,
     headerDark: false
   };
 
@@ -35,10 +36,10 @@ class App extends Component {
         />
         <main>
           <Switch>
-            <Route path="/lookbook" component={Lookbook} />
-            <Route path="/journal" component={Journal} />
+            <Route path="/lookbook-chels" component={Lookbook} />
+            <Route path="/journal-chels" component={Journal} />
             <Route path="/cart" component={Cart} />
-            <Route path="/shop" component={Shop} />
+            <Route path="/shop-chels" component={Shop} />
             <Route path="/not-found" component={NotFound} />
             <Route path="/" exact component={Home} />
             <Redirect to="not-found" />

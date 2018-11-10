@@ -2,8 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Header = ({ changeColor, headerDark }) => {
+  // console.log(props);
+
   return (
-    <header className={!headerDark ? "header" : "header header--dark"}>
+    <header
+      className={
+        !headerDark
+          ? "header padding-container"
+          : "header header--dark padding-container"
+      }
+    >
       <nav className="nav">
         <ul className="navigation mr-auto">
           <li className="navigation__item">
@@ -12,7 +20,11 @@ const Header = ({ changeColor, headerDark }) => {
             </Link>
           </li>
           <li className="navigation__item">
-            <Link to="/shop" className="navigation__link" onClick={changeColor}>
+            <Link
+              to="/shop-chels"
+              className="navigation__link"
+              onClick={changeColor}
+            >
               Shop
             </Link>
           </li>
@@ -28,7 +40,7 @@ const Header = ({ changeColor, headerDark }) => {
         <ul className="navigation ml-auto">
           <li className="navigation__item">
             <Link
-              to="/journal"
+              to="/journal-chels"
               className="navigation__link"
               onClick={changeColor}
             >
@@ -37,7 +49,7 @@ const Header = ({ changeColor, headerDark }) => {
           </li>
           <li className="navigation__item">
             <Link
-              to="/lookbook"
+              to="/lookbook-chels"
               className="navigation__link"
               onClick={changeColor}
             >
