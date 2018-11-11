@@ -1,0 +1,36 @@
+.footer {
+  padding: 10rem 5rem;
+  background-color: $color-gray-light;
+}
+
+.footer-nav {
+  display: flex;
+
+  &__group {
+    width: 16rem;
+    padding: 2rem;
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  &__item {
+    list-style: none;
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    margin-bottom: 0.65rem;
+
+    &:hover {
+      @include transition;
+      color: rgba(34, 34, 34, 0.5);
+    }
+  }
+}
