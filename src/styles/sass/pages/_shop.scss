@@ -1,0 +1,31 @@
+.shop-flex {
+  display: flex;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shop-nav {
+  width: 18rem;
+  padding-top: 2rem;
+
+  &__item {
+    list-style: none;
+    padding: 0.5rem 0;
+  }
+
+  &__link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: rgba(34, 34, 34, 0.7);
+    letter-spacing: 0.1rem;
+    @include transition;
+
+    &:hover {
+      color: rgba(34, 34, 34, 0.4);
+    }
+  }
+}

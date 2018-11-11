@@ -52,9 +52,9 @@ const Home = () => {
       <section className="hero hero--sale" style={bgSale}>
         <div className="hero-content">
           <h1 className="heading-primary">fw — 18</h1>
-          <a href="" className="btn">
+          <Link to="/shop-chels/?category=-%20Sale" className="btn">
             Shop the sale
-          </a>
+          </Link>
         </div>
       </section>
       <Collections

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import data from "./services/fakeDataService";
 import Header from "./components/header";
 import Home from "./main-pages/home";
 import Footer from "./components/footer";
@@ -19,9 +20,18 @@ import "./App.scss";
 import "./styles/sass/main.scss";
 
 class App extends Component {
-  state = {};
+  state = {
+    products: []
+  };
+
+  componentDidMount() {
+    const products = data;
+    this.setState({ products });
+  }
 
   render() {
+    const { products } = this.state;
+
     return (
       <React.Fragment>
         <Header pathName={this.props.location.pathname} />
@@ -37,7 +47,10 @@ class App extends Component {
             <Route path="/lookbook-chels" component={Lookbook} />
             <Route path="/journal-chels" component={Journal} />
             <Route path="/cart" component={Cart} />
-            <Route path="/shop-chels" component={Shop} />
+            <Route
+              path="/shop-chels"
+              render={props => <Shop products={products} {...props} />}
+            />
             <Route path="/not-found" component={NotFound} />
             <Route path="/" exact component={Home} />
             <Redirect to="not-found" />

@@ -24,7 +24,6 @@
 
 .navigation {
   font-size: 1.3rem;
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.13rem;
   list-style: none;
@@ -34,7 +33,7 @@
     @include transition;
 
     &:not(:last-child) {
-      margin-right: 0.6rem;
+      margin-right: 1rem;
     }
 
     &:hover {
