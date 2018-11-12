@@ -1,0 +1,19 @@
+.product-nav {
+  display: flex;
+  align-items: center;
+  padding-bottom: 4.5rem;
+
+  &__icon {
+    color: $color-gray-dark;
+    font-size: 1.4rem;
+    margin: 0 0.8rem;
+  }
+
+  &__link {
+    color: $color-gray-dark;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}

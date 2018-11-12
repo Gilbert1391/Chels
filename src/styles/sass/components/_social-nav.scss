@@ -1,0 +1,19 @@
+.social {
+  display: flex;
+  margin-top: 4.5rem;
+
+  &__link {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__icon {
+    color: #d3d3d3;
+    font-size: 1.8rem;
+  }
+}

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import data from "./services/fakeDataService";
+import { data, categoriesData } from "./services/fakeDataService";
 import Header from "./components/header";
-import Home from "./main-pages/home";
 import Footer from "./components/footer";
+import ProductFullView from "./components/productFullView";
+import Home from "./main-pages/home";
 import Shop from "./main-pages/shop";
 import Cart from "./main-pages/cart";
 import Journal from "./main-pages/journal";
@@ -21,22 +22,25 @@ import "./styles/sass/main.scss";
 
 class App extends Component {
   state = {
-    products: []
+    products: [],
+    categories: []
   };
 
   componentDidMount() {
     const products = data;
-    this.setState({ products });
+    const categories = [{ id: "", category: "All" }, ...categoriesData];
+    this.setState({ products, categories });
   }
 
   render() {
-    const { products } = this.state;
+    const { products, categories } = this.state;
 
     return (
       <React.Fragment>
         <Header pathName={this.props.location.pathname} />
         <main>
           <Switch>
+            <Route path="/shop-chels/:product" component={ProductFullView} />
             <Route path="/stockists-chels" component={Stockists} />
             <Route path="/stores-chels" component={Stores} />
             <Route path="/returns-exchanges-chels" component={Returns} />
@@ -49,7 +53,9 @@ class App extends Component {
             <Route path="/cart" component={Cart} />
             <Route
               path="/shop-chels"
-              render={props => <Shop products={products} {...props} />}
+              render={props => (
+                <Shop products={products} categories={categories} {...props} />
+              )}
             />
             <Route path="/not-found" component={NotFound} />
             <Route path="/" exact component={Home} />

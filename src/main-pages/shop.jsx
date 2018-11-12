@@ -1,27 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Shop = ({ products, ...props }) => {
-  const list = [
-    { category: "All" },
-    { category: "Accesories" },
-    { category: "Bottoms" },
-    { category: "Dresses + Jumpsuits" },
-    { category: "Outwear" },
-    { category: "Tops" },
-    { category: "- Sale" }
-  ];
-  if (props.location.search === "?category=-%20Sale")
-    return <div>Filtered</div>;
+const Shop = ({ products, categories, ...props }) => {
+  let filtered = products;
+
+  if (props.location.search) {
+    filtered = products.filter(
+      el => `?category=${el.category}` === props.location.search
+    );
+  }
 
   return (
     <section className="flex padding-container">
       <nav className="shop-nav">
         <ul>
-          {list.map(item => (
-            <li className="shop-nav__item" key={item.category}>
+          {categories.map(item => (
+            <li className="shop-nav__item" key={item.id}>
               <Link
-                to={`/shop-chels/?category=${item.category}`}
+                to={
+                  item.category !== "All"
+                    ? `/shop-chels/?category=${item.category.replace(/ /g, "")}`
+                    : "/shop-chels"
+                }
                 className="shop-nav__link"
               >
                 {item.category}
@@ -31,8 +31,12 @@ const Shop = ({ products, ...props }) => {
         </ul>
       </nav>
       <div className="products">
-        {products.map(el => (
-          <a href="" className="shop-item" key={el.id}>
+        {filtered.map(el => (
+          <Link
+            to={`/shop-chels/${el.path}`}
+            className="shop-item"
+            key={el.product}
+          >
             {el.sale ? <span className="shop-item__sale">Sale</span> : ""}
             <img src={el.image} alt={el.product} className="shop-item__img" />
             <div className="quickview">
@@ -49,7 +53,7 @@ const Shop = ({ products, ...props }) => {
                 </p>
               </div>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

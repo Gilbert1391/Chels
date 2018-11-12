@@ -15,6 +15,19 @@
     color: #222;
     background-color: $color-white;
   }
+
+  &--add {
+    color: #222;
+    border: 2px solid black;
+    font-weight: 400;
+    padding: 2.3rem 3.2rem;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-white;
+      background-color: #222;
+    }
+  }
 }
 
 .btn-anchor {
