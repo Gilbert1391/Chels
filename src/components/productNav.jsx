@@ -1,32 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductNav = ({ item }) => {
+const ProductNav = ({ item, path, onNextButton }) => {
   return (
     <nav className="product-nav">
-      <Link to="/shop-chels" className="product-nav__link">
-        Shop
-      </Link>
-      <span className="product-nav__icon">&rsaquo;</span>
-      <Link to={`${item.path}`} className="product-nav__link">
-        {item.product}
-      </Link>
-      {/* <div className="product-nav__buttons">
-        <span className="product-nav__arrow-prev product-nav__last">
-          &rsaquo;
-        </span>
-        <a
-          href="swingdress.html"
-          className="product-nav__link product-nav__last"
-        >
+      <div className="product-nav__group">
+        <Link to="/shop-chels" className="product-nav__link">
+          Shop
+        </Link>
+        <i className="product-nav__icon fa fa-angle-right" />
+        <Link to={`${item.path}`} className="product-nav__link">
+          {item.product}
+        </Link>
+      </div>
+      <div className="product-nav__group">
+        <a href="" className="product-nav__link">
+          <i className="product-nav__icon product-nav__icon--prev fa fa-angle-left" />
           previous
         </a>
         <span className="product-nav__icon product-nav__last">&#47;</span>
-        <a href="swingdress.html" className="product-nav__link">
+        <Link
+          to={`${path}`}
+          className="product-nav__link"
+          onClick={() => onNextButton()}
+        >
           next
-        </a>
-        <span className="product-nav__arrow-next">&rsaquo;</span>
-      </div> */}
+          <i className="product-nav__icon product-nav__icon--next fa fa-angle-right" />
+        </Link>
+      </div>
     </nav>
   );
 };

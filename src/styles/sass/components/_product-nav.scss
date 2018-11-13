@@ -1,16 +1,24 @@
 .product-nav {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   padding-bottom: 4.5rem;
+  color: $color-gray-dark;
 
   &__icon {
-    color: $color-gray-dark;
-    font-size: 1.4rem;
+    font-size: 1rem;
     margin: 0 0.8rem;
+
+    &--prev {
+      margin-right: 0.4rem;
+    }
+
+    &--next {
+      margin-left: 0.4rem;
+    }
   }
 
   &__link {
-    color: $color-gray-dark;
+    color: inherit;
     font-size: 1.2rem;
     letter-spacing: 1px;
     text-transform: uppercase;

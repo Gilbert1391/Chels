@@ -1,5 +1,4 @@
 .product {
-  padding: 1.5rem;
   background-color: $color-white;
   display: flex;
 
@@ -15,7 +14,7 @@
   }
 
   &__info-wrapper {
-    padding: 0 3.5rem;
+    padding-left: 5rem;
     letter-spacing: 0.1rem;
     color: $color-font;
   }
