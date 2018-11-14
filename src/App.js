@@ -34,6 +34,7 @@ class App extends Component {
 
   render() {
     const { products, categories } = this.state;
+    console.log(this.props.location.pathname);
 
     return (
       <React.Fragment>

@@ -10,37 +10,34 @@ class ProductFullView extends Component {
     index: null
   };
 
+  fetchProduct(product, index) {
+    this.setState({ product, index });
+  }
+
   componentDidMount() {
     let product = data.filter(
       item => item.path === this.props.match.params.product
     );
-
     product = Object.assign({}, ...product);
     const index = _.findIndex(data, product);
 
-    this.setState({ product, index });
+    this.fetchProduct(product, index);
   }
 
   handleNextButton = () => {
     let { index } = this.state;
     index < data.length - 1 ? ++index : (index = 0);
     const product = data[index];
-    const path = product.path;
 
-    this.setState({ product, index, path });
+    this.fetchProduct(product, index);
   };
 
   render() {
-    const { product, path } = this.state;
-    console.log(product);
+    const { product } = this.state;
 
     return (
       <section className="padding-container">
-        <ProductNav
-          item={product}
-          path={path}
-          onNextButton={this.handleNextButton}
-        />
+        <ProductNav item={product} onNextButton={this.handleNextButton} />
         <Product item={product} />
       </section>
     );

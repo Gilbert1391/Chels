@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ProductNav = ({ item, path, onNextButton }) => {
+const ProductNav = ({ item, onNextButton }) => {
+  console.log(item.path);
+
   return (
     <nav className="product-nav">
       <div className="product-nav__group">
@@ -14,13 +16,13 @@ const ProductNav = ({ item, path, onNextButton }) => {
         </Link>
       </div>
       <div className="product-nav__group">
-        <a href="" className="product-nav__link">
+        <a className="product-nav__link">
           <i className="product-nav__icon product-nav__icon--prev fa fa-angle-left" />
           previous
         </a>
         <span className="product-nav__icon product-nav__last">&#47;</span>
         <Link
-          to={`${path}`}
+          to={`/shop-chels/${item.path}`}
           className="product-nav__link"
           onClick={() => onNextButton()}
         >
