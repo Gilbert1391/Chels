@@ -2,6 +2,7 @@ import haoriJacket from "../img/products/haori-jacket.jpg";
 import swingDress from "../img/products/swing-dress.jpg";
 import loungeJumpsuit from "../img/products/lounge-jumpsuit.jpg";
 import linenTop from "../img/products/linen-top.jpg";
+import bricks from "../img/journal/journal-1.jpeg";
 
 export const data = [
   {
@@ -49,4 +50,28 @@ export const categoriesData = [
   { id: 13, category: "Outwear" },
   { id: 14, category: "Tops" },
   { id: 15, category: "- Sale" }
+];
+
+export const journalData = [
+  {
+    image: bricks,
+    author: "Michelle Liv",
+    date: "October 9, 2015",
+    title: "New York",
+    id: 1
+  },
+  {
+    image: bricks,
+    author: "Michelle Liv",
+    date: "September 2, 2015",
+    title: "Natural Textures",
+    id: 2
+  },
+  {
+    image: bricks,
+    author: "Michelle Liv",
+    date: "August 14, 2015",
+    title: "Sea",
+    id: 3
+  }
 ];
