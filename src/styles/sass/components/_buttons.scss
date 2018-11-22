@@ -16,6 +16,19 @@
     background-color: $color-white;
   }
 
+  &--form {
+    color: #222;
+    border: 2px solid black;
+    font-weight: 400;
+    padding: 1.4rem 3.5rem;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-white;
+      background-color: #222;
+    }
+  }
+
   &--add {
     color: #222;
     border: 2px solid black;

@@ -1,0 +1,43 @@
+.form {
+  width: 55.45rem;
+  margin: 0 auto;
+
+  &__group {
+    width: 100%;
+    color: $color-gray-dark;
+    padding: 1rem;
+  }
+
+  &__heading {
+    display: block;
+    font-size: 1.8rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 1.2rem;
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+
+    &:focus {
+      background-color: $color-white;
+    }
+  }
+
+  &__flex {
+    display: flex;
+    justify-content: space-between;
+
+    &--names {
+      width: 49%;
+    }
+  }
+
+  &__caption {
+    display: block;
+    font-size: 1.1rem;
+    letter-spacing: 0.1rem;
+    margin-top: 0.8rem;
+  }
+}
