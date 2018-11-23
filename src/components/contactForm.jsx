@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
-import Input from "./common/input";
-import InputName from "./inputName";
+import FormFlex from "./formFlex";
+import Input from "./inputs/input";
+import TextArea from "./inputs/textArea";
 
 class ContactForm extends Component {
   state = {
     contact: {
-      firstName: "",
-      lastName: "",
+      name: { firstName: "", lastName: "" },
       email: "",
       subject: "",
       message: ""
@@ -16,6 +16,9 @@ class ContactForm extends Component {
   };
 
   schema = {
+    name: Joi.string()
+      .required()
+      .label("Name"),
     email: Joi.string()
       .email({ minDomainAtoms: 2 })
       .required()
@@ -24,7 +27,12 @@ class ContactForm extends Component {
       .min(5)
       .max(50)
       .required()
-      .label("Subject")
+      .label("Subject"),
+    message: Joi.string()
+      .min(5)
+      .max(50)
+      .required()
+      .label("Message")
   };
 
   validate = () => {
@@ -65,27 +73,11 @@ class ContactForm extends Component {
 
     return (
       <form className="form" onSubmit={this.handleSubmit}>
-        <div className="form__group">
-          <label htmlFor="name" className="form__heading">
-            Name *
-          </label>
-          <div className="form__flex">
-            <InputName
-              name={"name"}
-              label={"First Name"}
-              value={contact.firstName}
-              onChange={this.handleChange}
-              error={errors.firstName}
-            />
-            <InputName
-              name={"name"}
-              label={"Last Name"}
-              value={contact.lastName}
-              onChange={this.handleChange}
-              error={errors.lastName}
-            />
-          </div>
-        </div>
+        <FormFlex
+          value={contact.name}
+          onChange={this.handleChange}
+          error={errors.name}
+        />
         <Input
           name={"email"}
           label={"Email *"}
@@ -100,19 +92,13 @@ class ContactForm extends Component {
           onChange={this.handleChange}
           error={errors.subject}
         />
-        <div className="form__group">
-          <label htmlFor="message" className="form__heading">
-            Message *
-          </label>
-          <textarea
-            id="message"
-            className="form__input"
-            rows="6"
-            name={"message"}
-            value={contact.message}
-            onChange={this.handleChange}
-          />
-        </div>
+        <TextArea
+          name={"message"}
+          label={"Message *"}
+          value={contact.message}
+          onChange={this.handleChange}
+          error={errors.message}
+        />
         <div className="form__group">
           <button className="btn btn--form">Submit</button>
         </div>
