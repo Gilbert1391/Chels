@@ -15,14 +15,14 @@ const FormFlex = ({ value, onChange, error }) => {
       </label>
       <div className="form__flex">
         <InputName
-          name={"name"}
+          name={"firstName"}
           label={"First Name"}
           value={value.firstName}
           onChange={onChange}
           error={error}
         />
         <InputName
-          name={"name"}
+          name={"lastName"}
           label={"Last Name"}
           value={value.lastName}
           onChange={onChange}

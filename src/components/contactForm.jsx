@@ -7,7 +7,8 @@ import TextArea from "./inputs/textArea";
 class ContactForm extends Component {
   state = {
     contact: {
-      name: { firstName: "", lastName: "" },
+      firstName: "",
+      lastName: "",
       email: "",
       subject: "",
       message: ""
@@ -74,7 +75,7 @@ class ContactForm extends Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <FormFlex
-          value={contact.name}
+          value={contact}
           onChange={this.handleChange}
           error={errors.name}
         />
