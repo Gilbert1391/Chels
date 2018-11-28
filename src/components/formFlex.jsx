@@ -19,14 +19,12 @@ const FormFlex = ({ value, onChange, error }) => {
           label={"First Name"}
           value={value.firstName}
           onChange={onChange}
-          error={error}
         />
         <InputName
           name={"lastName"}
           label={"Last Name"}
           value={value.lastName}
           onChange={onChange}
-          error={error}
         />
       </div>
     </div>

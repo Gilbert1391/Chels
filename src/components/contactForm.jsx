@@ -7,8 +7,7 @@ import TextArea from "./inputs/textArea";
 class ContactForm extends Component {
   state = {
     contact: {
-      firstName: "",
-      lastName: "",
+      name: { firstName: "", lastName: "" },
       email: "",
       subject: "",
       message: ""
@@ -17,11 +16,18 @@ class ContactForm extends Component {
   };
 
   schema = {
-    name: Joi.string()
-      .required()
-      .label("Name"),
+    name: {
+      firstName: Joi.string()
+        .max(50)
+        .label("Name")
+        .required(),
+      lastName: Joi.string()
+        .max(50)
+        .label("Name")
+        .required()
+    },
     email: Joi.string()
-      .email({ minDomainAtoms: 2 })
+      .email()
       .required()
       .label("Email"),
     subject: Joi.string()
@@ -37,14 +43,13 @@ class ContactForm extends Component {
   };
 
   validate = () => {
-    const result = Joi.validate(this.state.contact, this.schema, {
-      abortEarly: false
-    });
+    const options = { abortEarly: false };
+    const { error } = Joi.validate(this.state.contact, this.schema, options);
 
-    if (!result.error) return null;
+    if (!error) return null;
 
     const errors = {};
-    for (let item of result.error.details) {
+    for (let item of error.details) {
       errors[item.path[0]] = item.message;
     }
 
@@ -65,7 +70,16 @@ class ContactForm extends Component {
 
   handleChange = ({ currentTarget: target }) => {
     const contact = { ...this.state.contact };
+    // if (target.name === "firstName" || target.name === "lastName") {
+    //   contact.name[target.name] = target.value;
+    // }
     contact[target.name] = target.value;
+    this.setState({ contact });
+  };
+
+  handleNamesChange = ({ currentTarget: target }) => {
+    const contact = { ...this.state.contact };
+    contact.name[target.name] = target.value;
     this.setState({ contact });
   };
 
@@ -75,8 +89,8 @@ class ContactForm extends Component {
     return (
       <form className="form" onSubmit={this.handleSubmit}>
         <FormFlex
-          value={contact}
-          onChange={this.handleChange}
+          value={contact.name}
+          onChange={this.handleNamesChange}
           error={errors.name}
         />
         <Input
