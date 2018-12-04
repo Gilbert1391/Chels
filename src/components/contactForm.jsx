@@ -37,7 +37,7 @@ class ContactForm extends Component {
       .label("Subject"),
     message: Joi.string()
       .min(5)
-      .max(50)
+      .max(100)
       .required()
       .label("Message")
   };
@@ -70,9 +70,6 @@ class ContactForm extends Component {
 
   handleChange = ({ currentTarget: target }) => {
     const contact = { ...this.state.contact };
-    // if (target.name === "firstName" || target.name === "lastName") {
-    //   contact.name[target.name] = target.value;
-    // }
     contact[target.name] = target.value;
     this.setState({ contact });
   };

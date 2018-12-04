@@ -1,0 +1,23 @@
+.footer-block {
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
+    color: $color-gray-dark;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+    margin-bottom: 5rem;
+  
+    &__heading {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .list {
+    margin-top: 2rem;
+    margin-left: 4rem;
+  
+    &__item {
+      line-height: 3.1rem;
+    }
+  }
